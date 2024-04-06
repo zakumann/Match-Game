@@ -20,7 +20,7 @@ public class Gem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     // Update is called once per frame
@@ -40,7 +40,7 @@ public class Gem : MonoBehaviour
         {
             mousePressed = false;
 
-            finalTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            finalTouchPosition = Input.mousePosition;
             CalculateAngle();
         }
     }
@@ -53,7 +53,7 @@ public class Gem : MonoBehaviour
 
     private void OnMouseDown()
     {
-        firstTouchPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        firstTouchPosition = Input.mousePosition;
         mousePressed = true;
     }
 

@@ -21,6 +21,8 @@ public class Board : MonoBehaviour
         allGems = new Gem[width, height];
 
         Setup();
+
+
     }
 
     private void Setup()
