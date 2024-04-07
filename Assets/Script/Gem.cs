@@ -6,7 +6,7 @@ public class Gem : MonoBehaviour
 {
     [HideInInspector]
     public Vector2Int posIndex;
-    [HideInInspector]
+    //[HideInInspector]
     public Board board;
 
     private Vector2 firstTouchPosition;
@@ -117,15 +117,18 @@ public class Gem : MonoBehaviour
 
         board.matchFind.FindAllMatches();
 
-        if(otherGem != null)
+        if (otherGem != null)
         {
-            if(!isMatched && !otherGem.isMatched)
+            if (!isMatched && !otherGem.isMatched)
             {
                 otherGem.posIndex = posIndex;
                 posIndex = previousPos;
 
                 board.allGems[posIndex.x, posIndex.y] = this;
                 board.allGems[otherGem.posIndex.x, otherGem.posIndex.y] = otherGem;
+            } else
+            {
+                board.DestroyMatches();
             }
         }
     }
