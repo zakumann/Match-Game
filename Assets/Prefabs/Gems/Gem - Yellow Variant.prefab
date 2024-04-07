@@ -8,10 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7286964328620835286, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.86410254
+      objectReference: {fileID: 0}
+    - target: {fileID: -7286964328620835286, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.93846154
+      objectReference: {fileID: 0}
     - target: {fileID: 1133201038089937486, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6bb7c00a68de1634cbee8574d8499804, type: 3}
+    - target: {fileID: 2751866321969050688, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
+      propertyPath: type
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6875343862914424633, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
       propertyPath: m_Name
       value: Gem - Yellow Variant

@@ -8,10 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7286964328620835286, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 0.7897436
+      objectReference: {fileID: 0}
+    - target: {fileID: -7286964328620835286, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 0.8923077
+      objectReference: {fileID: 0}
     - target: {fileID: 1133201038089937486, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: fa67839330996764683a123cb35a1ea8, type: 3}
+    - target: {fileID: 2751866321969050688, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
+      propertyPath: type
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6875343862914424633, guid: 66488185bad07af4cb70f10268a30cc0, type: 3}
       propertyPath: m_Name
       value: Gem - Purple Variant
