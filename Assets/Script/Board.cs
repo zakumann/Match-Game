@@ -16,9 +16,12 @@ public class Board : MonoBehaviour
 
     public float gemSpeed;
 
+    [HideInInspector]
     public MatchFinder matchFind;
 
-    [HideInInspector]
+    public enum BoardState {  wait, move}
+    public BoardState currentState = BoardState.move;
+
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>();
@@ -34,7 +37,7 @@ public class Board : MonoBehaviour
 
     private void Update()
     {
-        matchFind.FindAllMatches();
+        //matchFind.FindAllMatches();
     }
 
     private void Setup()
@@ -60,11 +63,13 @@ public class Board : MonoBehaviour
                 SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
             }
         }
+
+
     }
 
     private void SpawnGem(Vector2Int pos, Gem gemToSpawn)
     {
-        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y, 0f), Quaternion.identity);
+        Gem gem = Instantiate(gemToSpawn, new Vector3(pos.x, pos.y + height, 0f), Quaternion.identity);
         gem.transform.parent = transform;
         gem.name = "Gem - " + pos.x + ", " + pos.y;
         allGems[pos.x, pos.y] = gem;
@@ -156,8 +161,12 @@ public class Board : MonoBehaviour
 
         if(matchFind.currentMatches.Count > 0)
         {
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(.5f);
             DestroyMatches();
+        } else
+        {
+            yield return new WaitForSeconds(.5f);
+            currentState = BoardState.move;
         }
     }
 
