@@ -1625,10 +1625,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64098f337148520488450b3d89b87707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roundTime: 60
+  roundTime: 100
   currentScore: 0
   displayScore: 0
   scoreSpeed: 5
+  scoreTarget1: 100
+  scoreTarget2: 500
+  scoreTarget3: 1000
 --- !u!4 &1166678605
 Transform:
   m_ObjectHideFlags: 0
@@ -1903,8 +1906,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeText: {fileID: 261549874}
   scoreText: {fileID: 450623076}
-  winScore: {fileID: 0}
-  winText: {fileID: 0}
+  winScore: {fileID: 436578922}
+  winText: {fileID: 362972448}
   winStars1: {fileID: 1851765636}
   winStars2: {fileID: 1381212186}
   winStars3: {fileID: 1126026558}
