@@ -31,16 +31,22 @@ public class Board : MonoBehaviour
     private float bonusMulti;
     public float bonusAmount = 0.5f;
 
+    private BoardLayout boardLayout;
+    private Gem[,] layoutStore;
+
     private void Awake()
     {
         matchFind = FindObjectOfType<MatchFinder>();
         roundMan = FindObjectOfType<RoundManager>();
+        boardLayout = GetComponent<BoardLayout>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
         allGems = new Gem[width, height];
+
+        layoutStore = new Gem[width, height];
 
         Setup();
     }
@@ -57,6 +63,11 @@ public class Board : MonoBehaviour
 
     private void Setup()
     {
+        if(boardLayout != null)
+        {
+            layoutStore = boardLayout.GetLayout();
+        }
+
         for(int x = 0; x < width; x++)
         {
             for(int y = 0; y < height; y++)
@@ -66,16 +77,24 @@ public class Board : MonoBehaviour
                 bgTile.transform.parent = transform;
                 bgTile.name = "BG Tile - " + x + ", " + y;
 
-                int gemToUse = Random.Range(0, gems.Length);
-
-                int iterations = 0;
-                while(MatchesAt(new Vector2Int(x,y), gems[gemToUse]) && iterations < 100)
+                if (layoutStore[x,y] != null)
                 {
-                    gemToUse = Random.Range(0, gems.Length);
-                    iterations++;
+                    SpawnGem(new Vector2Int(x, y), layoutStore[x, y]);
                 }
+                else
+                {
 
-                SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                    int gemToUse = Random.Range(0, gems.Length);
+
+                    int iterations = 0;
+                    while(MatchesAt(new Vector2Int(x,y), gems[gemToUse]) && iterations < 100)
+                    {
+                        gemToUse = Random.Range(0, gems.Length);
+                        iterations++;
+                    }
+
+                    SpawnGem(new Vector2Int(x, y), gems[gemToUse]);
+                }
             }
         }
 
